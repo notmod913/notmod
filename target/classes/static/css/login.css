@@ -1,0 +1,80 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Container Styling */
+.login-container {
+    width: 320px; /* Reduced width for a neater look */
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centers all text and button */
+}
+
+/* Input Fields Styling */
+input {
+    width: 92%; /* Ensures slight spacing from edges */
+    padding: 10px;
+    margin: 12px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Input Hover Effect */
+input:hover {
+    border-color: #007bff;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* Input Focus Effect */
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+/* Button Styling */
+button {
+    width: 80%; /* Reduced width for better alignment */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block; /* Ensures it centers properly */
+    margin: 15px auto 0; /* Centers the button */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+

@@ -1,0 +1,157 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/images/image4.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+header {
+    background-color: rgba(0, 123, 255, 0.9);
+    padding: 15px 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    background-color: rgba(0, 86, 179, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Main Content Wrapper */
+.container {
+    width: 90%;
+    max-width: 1000px; /* Keeps content centered */
+    background: white;
+    margin: 100px auto 30px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    text-align: center;
+}
+
+/* Hero Section */
+.hero h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero .brand {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.hero .btn:hover {
+    background: #218838;
+}
+
+/* Features Section */
+.features h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between items */
+}
+
+.feature-box {
+    width: calc(50% - 20px); /* Two feature boxes per row */
+    background: rgba(240, 240, 240, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Feature Box Text Styling */
+.feature-box h3 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.feature-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Footer Styling */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .features-container {
+        flex-direction: column;
+    }
+
+    .feature-box {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    header nav a {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+}

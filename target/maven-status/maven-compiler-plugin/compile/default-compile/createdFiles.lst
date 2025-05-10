@@ -1,0 +1,11 @@
+com\example\ecommerce\controller\ProductController.class
+com\example\ecommerce\controller\AdminController.class
+com\example\ecommerce\controller\LoginController$1.class
+com\example\ecommerce\model\Product.class
+com\example\ecommerce\controller\LoginController.class
+com\example\ecommerce\controller\DashboardController.class
+com\example\ecommerce\config\AppConfig.class
+com\example\ecommerce\EcommerceApplication.class
+com\example\ecommerce\repository\ProductRepository.class
+com\example\ecommerce\service\IpWhoisService.class
+com\example\ecommerce\controller\LoginController$2.class

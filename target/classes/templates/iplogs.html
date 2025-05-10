@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Logs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/iplogs.css"> <!-- External CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Logs</h1>
+        <div class="log-container" id="log-container">
+            <!-- Logs will be dynamically added here by jQuery -->
+        </div>
+    </div>
+
+    <!-- Logout Link -->
+    <div class="logout-container">
+        <a class="logout-link" th:href="@{/logout}">Logout</a>
+    </div>
+
+    <script>
+        // Function to format timestamp to IST (Indian Standard Time)
+        const formatTimestamp = (timestamp) => {
+            const date = new Date(timestamp);
+            const options = {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true,
+                timeZone: 'Asia/Kolkata' // IST Timezone
+            };
+            return date.toLocaleString('en-IN', options);
+        };
+
+        $(document).ready(function () {
+            $.getJSON('/logins.json', function (logs) {
+                // Sort logs by timestamp in descending order
+                logs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                logs.forEach(function (log) {
+                    const logTime = formatTimestamp(log.timestamp); // Format the timestamp to IST
+
+                    // Generate log card HTML
+                    const logCard = `
+                        <div class="log-card">
+                            <div class="log-header">
+                                <div class="log-role">${log.role}</div>
+                                <div class="log-time">${logTime}</div>
+                            </div>
+                            <div class="log-body">
+                                <div class="log-info">
+                                    <div><strong>Username:</strong> ${log.username}</div>
+                                    <div><strong>IP Address:</strong> ${log.ip}</div>
+                                    <div><strong>Location:</strong> ${log.location || 'Unknown'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    // Append log card to the container
+                    $('#log-container').append(logCard);
+                });
+            }).fail(function () {
+                alert("Failed to load login logs.");
+            });
+
+            // Hover effect to enlarge log card
+            $(document).on('mouseenter', '.log-card', function () {
+                $(this).css('transform', 'scale(1.05)');
+            }).on('mouseleave', '.log-card', function () {
+                $(this).css('transform', 'scale(1)');
+            });
+        });
+    </script>
+</body>
+</html>

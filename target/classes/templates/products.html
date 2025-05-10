@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">Orders</a>
+            <a href="/profile">Profile</a>
+            <th:block th:if="${session.username == 'admin'}">
+                <a href="/admindashboard">Admin Panel</a>
+            </th:block>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Category Filter Section -->
+    <div>
+        <label for="categoryFilter">Filter by Category: </label>
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+        </select>
+    </div>
+
+    <!-- Products Section -->
+    <h1>Products</h1>
+    <div id="productsContainer"></div>
+
+    <script>
+        $(document).ready(function () {
+            var username = /*[[${session.username}]]*/ ''; // Get the logged-in username
+            console.log("Logged in user:", username); // Debugging step
+
+            // ✅ Fixed: Fetch categories from correct endpoint
+            $.get('/api/products/categories', function(categories) {
+                const categoryFilter = $('#categoryFilter');
+                categories.forEach(function(category) {
+                    categoryFilter.append(`<option value="${category}">${category}</option>`);
+                });
+            }).fail(function(error) {
+                console.error('Error fetching categories:', error);
+                $('#categoryFilter').append('<option value="">Failed to load categories</option>');
+            });
+
+            // Function to fetch products based on selected category
+            function fetchProducts(category = '') {
+                $.get('/api/products', { category: category }, function(data) {
+                    const productsContainer = $('#productsContainer');
+                    productsContainer.empty(); // Clear before appending
+                    
+                    if (data.length === 0) {
+                        productsContainer.html('<p>No products available.</p>');
+                        return;
+                    }
+
+                    data.forEach(function(product) {
+                        let productElement = `
+                            <div class="product">
+                                <h3>${product.name}</h3>
+                                <img src="${product.pictureUrl}" alt="${product.name}" style="width: 200px; height: 200px;">
+                                <p>Price: $${product.price}</p>
+                                <p>Category: ${product.category}</p>
+                                ${username === 'admin' ? `<p>ID: ${product.id}</p>` : ''}
+                                <button class="add-to-cart" data-id="${product.id}" data-name="${product.name}" data-image="${product.pictureUrl}" data-price="${product.price}">Add to Cart</button>
+                            </div>
+                        `;
+                        productsContainer.append(productElement);
+                    });
+
+                    // Add to cart functionality
+                    $('.add-to-cart').click(function () {
+                        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        let product = {
+                            id: $(this).data('id'),
+                            name: $(this).data('name'),
+                            image: $(this).data('image'),
+                            price: $(this).data('price'),
+                            quantity: 1
+                        };
+
+                        let existingProduct = cart.find(item => item.id === product.id);
+                        if (existingProduct) {
+                            existingProduct.quantity++;
+                        } else {
+                            cart.push(product);
+                        }
+
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        alert(`${product.name} added to cart!`);
+                    });
+                }).fail(function(error) {
+                    console.error('Error fetching products:', error);
+                    $('#productsContainer').html('<p>Failed to load products. Please try again later.</p>');
+                });
+            }
+
+            // Initially fetch all products
+            fetchProducts();
+
+            // Fetch products when a category is selected
+            $('#categoryFilter').change(function() {
+                const selectedCategory = $(this).val();
+                fetchProducts(selectedCategory);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* Layout for the product grid */
+#productsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    padding: 20px;
+}
+.product {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.product h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.product p {
+    font-size: 14px;
+}
+
+/* Dashboard Buttons */
+.dashboard-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.dashboard-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+}
+.dashboard-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #productsContainer {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on tablets */
+    }
+}
+@media (max-width: 480px) {
+    #productsContainer {
+        grid-template-columns: 1fr; /* 1 item per row on mobile */
+    }
+}
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #007bff;
+    padding: 15px 20px;
+    color: white;
+    text-align: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #0056b3;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Welcome Message Styling */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    color: #333;
+}
+
+h1 span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Content Styling */
+.content {
+    margin: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Footer Styling (optional) */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    header nav a {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .content {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px 25px;
+    }
+}
+/* Add Background Image to Entire Page */
+body {
+    background-image: url('/images/image2.jpg'); /* Change this path to your actual image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center;
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+}
+
+/* Make Content Box Semi-Transparent */
+.content {
+    background-color: rgba(255, 255, 255, 0.85); /* Adds a slight transparency effect */
+    backdrop-filter: blur(8px); /* Optional: Adds a blur effect for a glass-like feel */
+}
+
+/* Category Filter Section */
+#categoryFilter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    width: 200px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* Category Filter Label */
+#categoryFilter + label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+/* Adjust Category Filter on Mobile */
+@media (max-width: 768px) {
+    #categoryFilter {
+        width: 150px;
+    }
+}

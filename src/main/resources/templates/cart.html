@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartContainer = $('#cartContainer');
+                const totalPriceContainer = $('#totalPrice');
+                const checkoutButton = $('#checkoutButton');
+                cartContainer.empty();
+                let totalPrice = 0;
+
+                if (cart.length === 0) {
+                    cartContainer.html('<p>Your cart is empty.</p>');
+                    totalPriceContainer.html('');
+                    checkoutButton.hide();
+                    return;
+                }
+
+                cart.forEach((product, index) => {
+                    let subtotal = product.price * product.quantity;
+                    totalPrice += subtotal;
+
+                    const cartItem = $(`
+                        <div class="cart-item">
+                            <img src="${product.image}" alt="${product.name}" style="width: 100px; height: 100px;">
+                            <h3>${product.name}</h3>
+                            <p>Price: $${product.price}</p>
+                            <p>Subtotal: $<span class="subtotal">${subtotal.toFixed(2)}</span></p>
+                            <div>
+                                <button class="decrease-qty" data-index="${index}">-</button>
+                                <span class="quantity">${product.quantity}</span>
+                                <button class="increase-qty" data-index="${index}">+</button>
+                            </div>
+                            <button class="remove-item" data-index="${index}">Remove</button>
+                        </div>
+                    `);
+                    cartContainer.append(cartItem);
+                });
+
+                totalPriceContainer.html(`<h2>Total: $${totalPrice.toFixed(2)}</h2>`);
+                checkoutButton.show();
+            }
+
+            // Load cart on page load
+            loadCart();
+
+            // Increase quantity
+            $(document).on('click', '.increase-qty', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                cart[index].quantity++;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            // Decrease quantity
+            $(document).on('click', '.decrease-qty', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                } else {
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            // Remove item from cart
+            $(document).on('click', '.remove-item', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            // Checkout button event
+            $('#checkoutButton').click(function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                    return;
+                }
+
+                if (confirm("Are you sure you want to place this order?")) {
+                    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+                    orders.push(...cart);  // Add cart items to orders
+                    localStorage.setItem('orders', JSON.stringify(orders));
+
+                    alert("Payment successful! Your order has been placed.");
+                    localStorage.removeItem('cart'); // Clear the cart
+                    loadCart(); // Reload cart view
+                }
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">Orders</a>
+            <a href="/profile">Profile</a>
+            <!-- Show Admin Panel button only if user is admin -->
+            <th:block th:if="${session.username == 'admin'}">
+                <a href="/admindashboard">Admin Panel</a>
+            </th:block>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <h1>Your Cart</h1>
+    <div id="cartContainer"></div>
+    <div id="totalPrice"></div>
+    <button id="checkoutButton" style="display: none;">Checkout</button>
+</body>
+</html>
+
+
+

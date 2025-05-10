@@ -1,0 +1,79 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Navbar Styles */
+header {
+    background-color: #007bff;
+    padding: 15px 20px;
+    color: white;
+    text-align: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #0056b3;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Orders Container */
+#ordersContainer {
+    margin: 20px auto;
+    width: 80%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Item Styles */
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.order-item h3 {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.order-item p {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* No Orders Message */
+#ordersContainer p {
+    font-size: 18px;
+    color: #777;
+    text-align: center;
+}

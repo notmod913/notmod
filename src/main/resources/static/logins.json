@@ -1,0 +1,211 @@
+[ {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "admin",
+  "timestamp" : "2025-05-05T12:47:51.582281200"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "not",
+  "timestamp" : "2025-05-05T12:48:06.505020900"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "admin",
+  "timestamp" : "2025-05-05T12:48:17.872767500"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:06:23.368110300"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:10:26.061329300"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:26:21.807540900"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "null, null, null",
+  "username" : "not",
+  "timestamp" : "2025-05-05T13:33:40.941144600"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "null, null, null",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:33:53.026504300"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "null, null, null",
+  "username" : "not",
+  "timestamp" : "2025-05-05T13:44:25.036096800"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "null, null, null",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:44:41.716840700"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Faoug, Switzerland",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T13:57:52.224000500"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Faoug, Switzerland",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T14:05:09.796678900"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Faoug, Switzerland",
+  "username" : "not",
+  "timestamp" : "2025-05-05T14:12:11.290017"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Faoug, Switzerland",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T14:12:27.679265400"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Faoug, Switzerland",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T14:19:32.585307200"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-05T17:06:09.123985600"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T17:06:33.156699100"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "admin",
+  "timestamp" : "2025-05-05T17:34:39.376978500"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "admin",
+  "timestamp" : "2025-05-05T19:57:02.994561700"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "notmod",
+  "timestamp" : "2025-05-05T20:09:43.215042100"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "admin",
+  "timestamp" : "2025-05-06T10:22:21.383813800"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "admin",
+  "timestamp" : "2025-05-06T10:43:33.705081500"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-06T10:44:20.987121500"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "notmod",
+  "timestamp" : "2025-05-06T10:45:16.007379"
+}, {
+  "role" : "ADMIN",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "admin",
+  "timestamp" : "2025-05-06T11:11:58.077951300"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-06T11:20:47.057032400"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-06T11:25:46.683721800"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-06T16:27:51.212736100"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-06T17:48:23.190438500"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-10T10:07:18.474384200"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "notmod",
+  "timestamp" : "2025-05-10T10:07:29.449800800"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-10T10:21:12.416479500"
+}, {
+  "role" : "",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "notmod",
+  "timestamp" : "2025-05-10T10:21:19.822848700"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-10T11:44:03.055143500"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-10T14:02:19.547463100"
+}, {
+  "role" : "USER",
+  "ip" : "0:0:0:0:0:0:0:1",
+  "location" : "Unknown",
+  "username" : "not",
+  "timestamp" : "2025-05-10T14:20:03.634569600"
+} ]

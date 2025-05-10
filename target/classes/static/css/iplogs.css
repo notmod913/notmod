@@ -1,0 +1,101 @@
+/* Global Styles */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Log Container Styles */
+.log-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.log-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.log-card:hover {
+    transform: scale(1.05);
+}
+
+.log-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-role {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.log-time {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.log-body {
+    padding: 15px;
+}
+
+.log-info {
+    font-size: 1rem;
+    color: #333;
+}
+
+.log-info div {
+    margin: 5px 0;
+}
+
+/* Logout Button Styling */
+.logout-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logout-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.logout-link:hover {
+    background-color: #0056b3;
+}
+
+.logout-link:focus {
+    outline: none;
+}

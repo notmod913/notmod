@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">Orders</a>
+            <a href="/profile">Profile</a>
+
+            <!-- Show Admin Panel button only if user is admin -->
+            <th:block th:if="${session.username == 'admin'}">
+                <a href="/admindashboard">Admin Panel</a>
+            </th:block>
+            
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Message -->
+    <h1>Welcome, <span th:text="${session.username}"></span>!</h1>
+
+    <!-- Dashboard Content -->
+    <div class="content">
+        <h2>📊 Dashboard Overview</h2>
+        <p>Welcome to your personalized dashboard! Here's a quick overview:</p>
+
+        <h3>🛒 Total Orders</h3>
+        <p><strong>125</strong> orders placed this month.</p>
+
+        <h3>🔥 Popular Category</h3>
+        <p>Electronics is trending this week!</p>
+
+        <h3>⭐ Your Last Purchase</h3>
+        <p>Wireless Headphones - Ordered on <strong>Feb 15, 2025</strong>.</p>
+
+        <h3>🎁 Special Discount</h3>
+        <p>Use code <span class="promo-code">SAVE20</span> for 20% off your next order!</p>
+
+        <button onclick="window.location.href='/products'">Shop Now</button>
+    </div>
+  
+</body>
+</html>

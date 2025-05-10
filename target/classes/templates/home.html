@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | E-Commerce</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <a href="/home" class="active">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">Orders</a>
+            <a href="/profile">Profile</a>
+            <a href="/Dashboard" class="dashboard-btn">Dashboard</a>
+            <th:block th:if="${session.username == 'admin'}">
+                <a href="/admindashboard">Admin Panel</a>
+            </th:block>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Welcome to <span class="brand">notSHOP</span></h1>
+                <p>Your one-stop destination for the best products at unbeatable prices.</p>
+                <a href="/products" class="btn">Start Shopping</a>
+            </div>
+        </section>
+
+        <!-- Featured Section -->
+        <section class="features">
+            <h2>Why Shop With Us?</h2>
+            <div class="features-container">
+                <div class="feature-box">
+                    <h3>🔥 Exclusive Deals</h3>
+                    <p>Get the best discounts and offers every day.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🚀 Fast Delivery</h3>
+                    <p>We deliver your products at lightning speed.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>✅ Trusted Quality</h3>
+                    <p>All our products go through strict quality checks.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>💰 Secure Payments</h3>
+                    <p>Your transactions are protected with top-notch security.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>

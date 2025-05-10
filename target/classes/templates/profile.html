@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/profile.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-field {
+            margin-bottom: 15px;
+        }
+        .profile-field strong {
+            display: block;
+            font-size: 16px;
+        }
+        .profile-field span, .profile-field input, .profile-field select {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">Orders</a>
+            <a href="/profile">Profile</a>
+            <th:block th:if="${session.username == 'admin'}">
+                <a href="/admindashboard">Admin Panel</a>
+            </th:block>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-container">
+            <h2 class="text-center">User Profile</h2>
+            
+            <div class="profile-field">
+                <strong>Name:</strong>
+                <span id="usernameText"></span>
+                <input type="text" id="usernameInput" class="form-control" style="display:none;">
+            </div>
+
+            <div class="profile-field">
+                <strong>Email:</strong>
+                <span id="emailText"></span>
+                <input type="text" id="emailInput" class="form-control" style="display:none;">
+            </div>
+
+            <div class="profile-field">
+                <strong>Phone:</strong>
+                <span id="phoneText"></span>
+                <input type="text" id="phoneInput" class="form-control" style="display:none;">
+            </div>
+
+            <div class="profile-field">
+                <strong>Address:</strong>
+                <span id="addressText"></span>
+                <input type="text" id="addressInput" class="form-control" style="display:none;">
+            </div>
+
+            <div class="profile-field">
+                <strong>Date of Birth:</strong>
+                <span id="dobText"></span>
+                <input type="date" id="dobInput" class="form-control" style="display:none;">
+            </div>
+
+            <div class="profile-field">
+                <strong>Gender:</strong>
+                <span id="genderText"></span>
+                <select id="genderInput" class="form-control" style="display:none;">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="text-center mt-4">
+                <button id="editButton" class="btn btn-primary">Edit Profile</button>
+                <button id="saveButton" class="btn btn-success" style="display:none;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function fetchProfile() {
+                let profileData = JSON.parse(localStorage.getItem("userProfile")) || {};
+                $("#usernameText").text(profileData.name || "");
+                $("#emailText").text(profileData.email || "");
+                $("#phoneText").text(profileData.phone || "");
+                $("#addressText").text(profileData.address || "");
+                $("#dobText").text(profileData.dob || "");
+                $("#genderText").text(profileData.gender || "");
+                
+                $("#usernameInput").val(profileData.name || "");
+                $("#emailInput").val(profileData.email || "");
+                $("#phoneInput").val(profileData.phone || "");
+                $("#addressInput").val(profileData.address || "");
+                $("#dobInput").val(profileData.dob || "");
+                $("#genderInput").val(profileData.gender || "");
+            }
+
+            fetchProfile();
+
+            $("#editButton").click(function() {
+                $("span[id$='Text']").hide();
+                $("input, select").show();
+                $("#editButton").hide();
+                $("#saveButton").show();
+            });
+
+            $("#saveButton").click(function() {
+                let userData = {
+                    name: $("#usernameInput").val(),
+                    email: $("#emailInput").val(),
+                    phone: $("#phoneInput").val(),
+                    address: $("#addressInput").val(),
+                    dob: $("#dobInput").val(),
+                    gender: $("#genderInput").val()
+                };
+                
+                localStorage.setItem("userProfile", JSON.stringify(userData));
+                alert("Profile updated successfully!");
+                fetchProfile();
+                $("input, select").hide();
+                $("span[id$='Text']").show();
+                $("#editButton").show();
+                $("#saveButton").hide();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
